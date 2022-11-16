@@ -459,7 +459,15 @@ public class FormMain extends javax.swing.JFrame {
 
     private void lbThemMoiHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMoiHDMouseClicked
         // TODO add your handling code here:
-
+        clearGround();
+        panelDonHang.setBackground(Color.decode("#FDE0BE"));
+        lbThemMoiHD.setForeground(Color.decode("#F29D38"));
+        ThemDonHang tdh = new ThemDonHang();
+        panelContainer.removeAll();
+        panelContainer.add(tdh);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
     }//GEN-LAST:event_lbThemMoiHDMouseClicked
 
     private void lbThemMoiTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMoiTKMouseClicked

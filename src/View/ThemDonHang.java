@@ -49,7 +49,7 @@ public class ThemDonHang extends javax.swing.JPanel {
         jButton2.setMinimumSize(new java.awt.Dimension(116, 38));
         jButton2.setPreferredSize(new java.awt.Dimension(116, 38));
 
-        jButton3.setBackground(new java.awt.Color(2, 63, 93));
+        jButton3.setBackground(new java.awt.Color(216, 217, 218));
         jButton3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jButton3.setText("HỦY BỎ");
         jButton3.setBorder(null);
