@@ -21,7 +21,6 @@ public class AccountRepository {
         String query = "SELECT [ID]\n"
                 + "      ,[Username]\n"
                 + "      ,[Password]\n"
-                + "      ,[Role]\n"
                 + "  FROM [dbo].[Account] WHERE [Username] = ? and [Password] = ?";
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(query)) {
             Account acc = new Account();
@@ -29,7 +28,7 @@ public class AccountRepository {
             ps.setObject(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                acc = new Account(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+                acc = new Account(rs.getString(1), rs.getString(2), rs.getString(3), 0);
             }
             return acc;
         } catch (SQLException e) {

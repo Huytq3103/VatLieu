@@ -5,6 +5,7 @@
 package View;
 
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +16,13 @@ public class DSHoaDon extends javax.swing.JPanel {
     /**
      * Creates new form DSHoaDon
      */
+    private DefaultTableModel dtm = new DefaultTableModel();
     public DSHoaDon() {
         initComponents();
+        tbHienThi.setModel(dtm);
+        String[] header = {"ID","Tên Đơn","Tên người bán","Ngày bán","Tổng tiền (triệu)","Trạng thái"};
+        dtm.setColumnIdentifiers(header);
+        
     }
 
     /**
@@ -32,6 +38,8 @@ public class DSHoaDon extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbHienThi = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -80,15 +88,29 @@ public class DSHoaDon extends javax.swing.JPanel {
         jPanel3.setMaximumSize(new java.awt.Dimension(1585, 648));
         jPanel3.setMinimumSize(new java.awt.Dimension(1585, 648));
 
+        tbHienThi.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        tbHienThi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbHienThi);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1585, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1585, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -157,7 +179,7 @@ public class DSHoaDon extends javax.swing.JPanel {
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,6 +200,8 @@ public class DSHoaDon extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbHienThi;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

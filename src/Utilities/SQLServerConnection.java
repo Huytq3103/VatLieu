@@ -20,7 +20,7 @@ public class SQLServerConnection {
 
     public static final String PORT = "1433";
 
-    public static final String DBNAME = "VLXD";
+    public static final String DBNAME = "VatLieu";
 
     public static final String USERNAME = "sa";
 
