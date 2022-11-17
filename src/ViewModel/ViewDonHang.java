@@ -4,6 +4,7 @@
  */
 package ViewModel;
 
+import Model.HoaDon;
 import java.math.BigDecimal;
 
 /**
@@ -17,13 +18,13 @@ public class ViewDonHang {
     private String nguoiBan;
     private String ngayBan;
 
-    public ViewDonHang(String id, String tenDon, String nguoiBan, String ngayBan, BigDecimal tongtien, int TrangThai) {
-        this.id = id;
-        this.tenDon = tenDon;
-        this.nguoiBan = nguoiBan;
-        this.ngayBan = ngayBan;
-        this.tongtien = tongtien;
-        this.TrangThai = TrangThai;
+    public ViewDonHang(HoaDon hd) {
+        this.id = hd.getId();
+        this.tenDon = hd.getTen();
+        this.nguoiBan = hd.getAccount().getHoTen();
+        this.ngayBan = hd.getNgayTao();
+        this.tongtien = hd.getTongTien();
+        this.TrangThai = hd.getTrangThai();
     }
 
     public String getNgayBan() {
@@ -87,7 +88,7 @@ public class ViewDonHang {
         }
     }
 
-    private Object[] toDataRow(int i) {
-        return new Object[]{i, tenDon, ngayBan, nguoiBan, tongtien, trangThaiHoaDon()};
+    public Object[] toDataRow(int i) {
+        return new Object[]{i, tenDon, nguoiBan, ngayBan, tongtien, trangThaiHoaDon()};
     }
 }

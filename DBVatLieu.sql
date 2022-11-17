@@ -109,9 +109,33 @@ CONSTRAINT PK_IdCTSP_IdGH PRIMARY KEY (IdCTSP,IdHoaDon),
 CONSTRAINT FK_IdGHCTSP FOREIGN KEY (IdCTSP) REFERENCES ChiTietSanPham(Id),
 CONSTRAINT FK_IdGH FOREIGN KEY (IdHoaDon) REFERENCES HoaDon(Id)
 )
-INSERT INTO Account(ChucVu,TrangThai,HoTen,GioiTinh,Email,SDT,DiaChi,NgayTao,NguoiTao,Username,[Password],NgaySinh)
-VALUES(1,1,'Huy',0,'huytqph26085','0295932235','sfasghasgas',GETDATE(),'871C6EAC-FEE8-49C1-A079-20E274AF113E','HUYTQPH26085','123456','03/03/2003')
-SELECT [ID],  [Username]
-              ,[Password]
-                     
- FROM [dbo].[Account] WHERE [Username] = 'HUYTQPH26085'  and [Password] = '123456'
+INSERT INTO SanPham(Ma,TenSP) VALUES
+('SP1','Sat'),
+('SP2','Xi'),
+('SP3','Gach'),
+('SP4','Mat')
+INSERT INTO Loai(Ma,Ten) VALUES
+('L1','Loai1'),
+('L2','Loai2'),
+('L3','Loai3'),
+('L4','Loai4')
+INSERT INTO Hang(Ma,Ten) VALUES
+('H1','HangA'),
+('H2','HangB'),
+('H3','HangC'),
+('H4','HangD')
+INSERT INTO ChiTietSanPham(IdSP,IdHang,IdLoai,DonViTinh,SoLuongTon,GiaNhap,GiaBan,NgayNhap)
+VALUES
+('B8307E4F-B626-4144-9D9D-0894D992A894','3',2,'Bao',200,60000,80000,'10/10/2019'),
+('24B766CF-5BFC-492A-8A90-3C64379D9465','1',1,'KG',300,15000,19000,'09/06/2018'),
+('A310B85C-850B-4F33-AECA-D36734D55846','2',4,'Vien',20000,1000,2500,'03/05/2020')
+SELECT * FROM SanPham
+SELECT * FROM Hang
+SELECT * FROM Loai
+SELECT * FROM ChiTietSanPham
+INSERT INTO KhachHang(HoTen,NgaySinh,GioiTinh,SDT,DiaChi,Email,NgayTao,NguoiTao)
+VALUES ('Ong B','04/01/1999',0,'07124992758','AFASFSAGU','AB.@gmail.com','12/12/2021','A0AE2A09-000E-4E2F-B8F7-87412BFC1B56')
+SELECT * FROM Account
+SELECT * FROM KhachHang
+INSERT INTO HoaDon(IdAcc,IdKH,IdTT,Ten,NgayTao,TongTien) VALUES
+('A0AE2A09-000E-4E2F-B8F7-87412BFC1B56','75BF3603-CB06-437F-B927-DA8EECE3EF71',0,'Hoa Don A','11/11/2022',9000000)
