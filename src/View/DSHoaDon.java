@@ -17,12 +17,13 @@ public class DSHoaDon extends javax.swing.JPanel {
      * Creates new form DSHoaDon
      */
     private DefaultTableModel dtm = new DefaultTableModel();
+
     public DSHoaDon() {
         initComponents();
         tbHienThi.setModel(dtm);
-        String[] header = {"ID","Tên Đơn","Tên người bán","Ngày bán","Tổng tiền (triệu)","Trạng thái"};
+        String[] header = {"ID", "Tên Đơn", "Tên người bán", "Ngày bán", "Tổng tiền (triệu)", "Trạng thái"};
         dtm.setColumnIdentifiers(header);
-        
+
     }
 
     /**
@@ -106,11 +107,13 @@ public class DSHoaDon extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1585, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1585, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 60, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -185,13 +188,15 @@ public class DSHoaDon extends javax.swing.JPanel {
 
     private void txtSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSearchMouseClicked
         // TODO add your handling code here:
-        if(txtSearch.getForeground().equals(Color.decode("#607D8B"))){
+        if (txtSearch.getForeground().equals(Color.decode("#607D8B"))) {
             txtSearch.setText("");
             txtSearch.setForeground(Color.decode("#263238"));
         }
     }//GEN-LAST:event_txtSearchMouseClicked
 
+    private void showDataTbale() {
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
