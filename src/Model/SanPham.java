@@ -9,16 +9,18 @@ package Model;
  * @author Huy PC
  */
 public class SanPham {
+
     private String id;
     private String ma;
     private String tenSP;
-    private String ngayTao;
 
-    public SanPham(String id, String ma, String tenSP, String ngayTao) {
+    public SanPham(String id, String ma, String tenSP) {
         this.id = id;
         this.ma = ma;
         this.tenSP = tenSP;
-        this.ngayTao = ngayTao;
+    }
+
+    public SanPham() {
     }
 
     public String getId() {
@@ -45,12 +47,4 @@ public class SanPham {
         this.tenSP = tenSP;
     }
 
-    public String getNgayTao() {
-        return ngayTao;
-    }
-
-    public void setNgayTao(String ngayTao) {
-        this.ngayTao = ngayTao;
-    }
-            
 }

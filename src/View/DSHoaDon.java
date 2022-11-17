@@ -4,7 +4,12 @@
  */
 package View;
 
+import Service.ViewDanhSachHoaDonService;
+import Service.impl.ViewDanhSachHoaDonServiceImpl;
+import ViewModel.ViewDonHang;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,13 +22,16 @@ public class DSHoaDon extends javax.swing.JPanel {
      * Creates new form DSHoaDon
      */
     private DefaultTableModel dtm = new DefaultTableModel();
+    private ViewDanhSachHoaDonService service = new ViewDanhSachHoaDonServiceImpl();
+    private List<ViewDonHang> listDonHang = new ArrayList<>();
 
     public DSHoaDon() {
         initComponents();
         tbHienThi.setModel(dtm);
         String[] header = {"ID", "Tên Đơn", "Tên người bán", "Ngày bán", "Tổng tiền (triệu)", "Trạng thái"};
         dtm.setColumnIdentifiers(header);
-
+        listDonHang = service.getAll();
+        showDataTbale(listDonHang);
     }
 
     /**
@@ -194,8 +202,13 @@ public class DSHoaDon extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtSearchMouseClicked
 
-    private void showDataTbale() {
-
+    private void showDataTbale(List<ViewDonHang> list) {
+        dtm.setRowCount(0);
+        int i = 1;
+        for(ViewDonHang vdh : list){
+            dtm.addRow(vdh.toDataRow(i));
+            i++;
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

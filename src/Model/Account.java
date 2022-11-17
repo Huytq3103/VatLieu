@@ -29,6 +29,12 @@ public class Account {
     public Account() {
     }
 
+    public Account(String id, int chucVu, String hoTen) {
+        this.id = id;
+        this.chucVu = chucVu;
+        this.hoTen = hoTen;
+    }
+
     public Account(String id, int chucVu, int trangThai, String hoTen, String ngaySinh, boolean gioiTinh, String SDT, String diaChi, String eamil, String username, String password, String ngayTao, String nguoiTao, String ngayChinhSua, String NguoiChinhSua) {
         this.id = id;
         this.chucVu = chucVu;
