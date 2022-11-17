@@ -28,7 +28,7 @@ public class AccountRepository {
             ps.setObject(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                acc = new Account(rs.getString(1), rs.getString(2), rs.getString(3), 0);
+                acc = new Account(rs.getString(1),0, 0, rs.getString(2), rs.getString(3));
             }
             return acc;
         } catch (SQLException e) {
