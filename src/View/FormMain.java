@@ -439,20 +439,6 @@ public class FormMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbDanhSachHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachHDMouseClicked
-        // TODO add your handling code here:
-        clearGround();
-        panelDonHang.setBackground(Color.decode("#FDE0BE"));
-        lbDanhSachHD.setForeground(Color.decode("#F29D38"));
-        DSHoaDon dshd = new DSHoaDon();
-        panelContainer.removeAll();
-        panelContainer.add(dshd);
-        panelContainer.setLayout(new FlowLayout());
-        this.pack();
-        panelContainer.setVisible(true);
-
-    }//GEN-LAST:event_lbDanhSachHDMouseClicked
-
     private void lbDanhSachTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachTKMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lbDanhSachTKMouseClicked
@@ -502,6 +488,19 @@ public class FormMain extends javax.swing.JFrame {
     private void lbLoaiSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLoaiSPMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lbLoaiSPMouseClicked
+
+    private void lbDanhSachHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachHDMouseClicked
+        // TODO add your handling code here:
+        clearGround();
+        panelDonHang.setBackground(Color.decode("#FDE0BE"));
+        lbDanhSachHD.setForeground(Color.decode("#F29D38"));
+        DSHoaDon dshd = new DSHoaDon();
+        panelContainer.removeAll();
+        panelContainer.add(dshd);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
+    }//GEN-LAST:event_lbDanhSachHDMouseClicked
 
     /**
      * @param args the command line arguments
