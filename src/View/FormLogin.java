@@ -4,6 +4,7 @@
  */
 package View;
 
+import Repository.AccountRepository;
 import java.awt.Color;
 
 /**
@@ -15,6 +16,8 @@ public class FormLogin extends javax.swing.JFrame {
     /**
      * Creates new form FormLogin
      */
+    private AccountRepository ar = new AccountRepository();
+
     public FormLogin() {
         initComponents();
 
@@ -238,8 +241,12 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       ThemMoiTaiKhoan khoan = new ThemMoiTaiKhoan();
-       khoan.setVisible(true);
+        if (ar.getOne(txtUsername.getText().trim(), txtPass.getText().trim()) != null) {
+            this.dispose();
+            FormMain fm = new FormMain();
+            fm.setVisible(true);
+        }
+        ;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

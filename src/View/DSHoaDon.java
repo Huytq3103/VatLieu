@@ -22,6 +22,7 @@ public class DSHoaDon extends javax.swing.JPanel {
         tbHienThi.setModel(dtm);
         String[] header = {"ID","Tên Đơn","Tên người bán","Ngày bán","Tổng tiền (triệu)","Trạng thái"};
         dtm.setColumnIdentifiers(header);
+        
     }
 
     /**
@@ -87,6 +88,7 @@ public class DSHoaDon extends javax.swing.JPanel {
         jPanel3.setMaximumSize(new java.awt.Dimension(1585, 648));
         jPanel3.setMinimumSize(new java.awt.Dimension(1585, 648));
 
+        tbHienThi.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         tbHienThi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
