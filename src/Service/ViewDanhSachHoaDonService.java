@@ -4,7 +4,7 @@
  */
 package Service;
 
-import ViewModel.ViewDonHang;
+import Model.HoaDon;
 import java.util.List;
 
 /**
@@ -12,5 +12,5 @@ import java.util.List;
  * @author Huy PC
  */
 public interface ViewDanhSachHoaDonService {
-    List<ViewDonHang> getAll();
+    List<HoaDon> getAll();
 }

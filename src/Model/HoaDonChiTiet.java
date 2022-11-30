@@ -98,5 +98,7 @@ public class HoaDonChiTiet {
     public void setDonGia(BigDecimal donGia) {
         this.donGia = donGia;
     }
-
+    public Object[] toDataRow(int i){
+        return new Object[]{i,tenSP,hang,loai,donViTinh,soLuong,donGia};
+    }
 }

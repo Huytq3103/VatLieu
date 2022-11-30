@@ -11,6 +11,7 @@ import java.math.BigDecimal;
  * @author Huy PC
  */
 public class ChiTietSanPham {
+
     private String id;
     private SanPham sp;
     private Hang hang;
@@ -117,5 +118,9 @@ public class ChiTietSanPham {
     public void setNgayChinhSua(String ngayChinhSua) {
         this.ngayChinhSua = ngayChinhSua;
     }
-    
+
+    public Object[] toDataRow() {
+        return new Object[]{id, sp.getTenSP(), hang.getTen(), loai.getTen(), donViTinh, soLuongTon, giaBan, ngayNhap};
+    }
+
 }

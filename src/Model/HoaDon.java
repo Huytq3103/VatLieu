@@ -139,4 +139,7 @@ public class HoaDon {
         this.nguoiChinhSua = nguoiChinhSua;
     }
 
+    public Object[] toDataRow(int i) {
+        return new Object[]{i, ten, ngayTao, account.getHoTen(), tongTien, trangThai == 1 ? "Đã thanh toán" : "Chưa thanh toán"};
+    }
 }

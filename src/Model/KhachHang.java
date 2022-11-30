@@ -134,4 +134,7 @@ public class KhachHang {
         this.nguoiChinhSua = nguoiChinhSua;
     }
 
+    public Object[] toDataRow(int i) {
+        return new Object[]{i, hoTen, ngaySinh, gioiTinh == true ? "Nam" : "Nu", sdt, diaChi, email, nguoiTao, ngayTao};
+    }
 }
