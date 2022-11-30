@@ -14,11 +14,10 @@ import java.awt.FlowLayout;
 public class FormMain extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormDSOrder
+     * Creates new form FormMain1
      */
     public FormMain() {
         initComponents();
-
     }
 
     /**
@@ -60,12 +59,10 @@ public class FormMain extends javax.swing.JFrame {
         panelContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(216, 217, 218));
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
         jPanel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         pannelHeader.setBackground(new java.awt.Color(242, 157, 56));
         pannelHeader.setMaximumSize(new java.awt.Dimension(1920, 64));
@@ -118,12 +115,10 @@ public class FormMain extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(240, 768));
         jPanel2.setMinimumSize(new java.awt.Dimension(240, 768));
-        jPanel2.setPreferredSize(new java.awt.Dimension(240, 768));
 
         panelDonHang.setBackground(new java.awt.Color(255, 255, 255));
         panelDonHang.setMaximumSize(new java.awt.Dimension(216, 39));
         panelDonHang.setMinimumSize(new java.awt.Dimension(216, 39));
-        panelDonHang.setPreferredSize(new java.awt.Dimension(216, 39));
 
         iconOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Order.png"))); // NOI18N
 
@@ -187,7 +182,6 @@ public class FormMain extends javax.swing.JFrame {
         panelSanPham.setBackground(new java.awt.Color(255, 255, 255));
         panelSanPham.setMaximumSize(new java.awt.Dimension(216, 39));
         panelSanPham.setMinimumSize(new java.awt.Dimension(216, 39));
-        panelSanPham.setPreferredSize(new java.awt.Dimension(216, 39));
 
         iconOrder2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Sanpham.png"))); // NOI18N
 
@@ -352,7 +346,7 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(lbDanhSachSP)
                             .addComponent(lbThemMoiSP)
                             .addComponent(lbLoaiSP))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,9 +433,18 @@ public class FormMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbDanhSachTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachTKMouseClicked
+    private void lbDanhSachHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachHDMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbDanhSachTKMouseClicked
+        clearGround();
+        panelDonHang.setBackground(Color.decode("#FDE0BE"));
+        lbDanhSachHD.setForeground(Color.decode("#F29D38"));
+        DSHoaDon dshd = new DSHoaDon();
+        panelContainer.removeAll();
+        panelContainer.add(dshd);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
+    }//GEN-LAST:event_lbDanhSachHDMouseClicked
 
     private void lbThemMoiHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMoiHDMouseClicked
         // TODO add your handling code here:
@@ -455,6 +458,19 @@ public class FormMain extends javax.swing.JFrame {
         this.pack();
         panelContainer.setVisible(true);
     }//GEN-LAST:event_lbThemMoiHDMouseClicked
+
+    private void lbDanhSachTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachTKMouseClicked
+        // TODO add your handling code here:
+        clearGround();
+        panelTaiKhoan.setBackground(Color.decode("#FDE0BE"));
+        lbDanhSachTK.setForeground(Color.decode("#F29D38"));
+        DSTaiKhoan dstk = new DSTaiKhoan();
+        panelContainer.removeAll();
+        panelContainer.add(dstk);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
+    }//GEN-LAST:event_lbDanhSachTKMouseClicked
 
     private void lbThemMoiTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMoiTKMouseClicked
         // TODO add your handling code here:
@@ -471,6 +487,15 @@ public class FormMain extends javax.swing.JFrame {
 
     private void lbDanhSachKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachKHMouseClicked
         // TODO add your handling code here:
+        clearGround();
+        panelKhachHang.setBackground(Color.decode("#FDE0BE"));
+        lbDanhSachKH.setForeground(Color.decode("#F29D38"));
+        DSKhachHang dskh = new DSKhachHang();
+        panelContainer.removeAll();
+        panelContainer.add(dskh);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
     }//GEN-LAST:event_lbDanhSachKHMouseClicked
 
     private void lbThemMoiKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMoiKHMouseClicked
@@ -483,28 +508,20 @@ public class FormMain extends javax.swing.JFrame {
 
     private void lbDanhSachSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachSPMouseClicked
         // TODO add your handling code here:
+        clearGround();
+        panelSanPham.setBackground(Color.decode("#FDE0BE"));
+        lbDanhSachSP.setForeground(Color.decode("#F29D38"));
+        DSSanPham dssp = new DSSanPham();
+        panelContainer.removeAll();
+        panelContainer.add(dssp);
+        panelContainer.setLayout(new FlowLayout());
+        this.pack();
+        panelContainer.setVisible(true);
     }//GEN-LAST:event_lbDanhSachSPMouseClicked
 
     private void lbLoaiSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLoaiSPMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lbLoaiSPMouseClicked
-
-    private void lbDanhSachHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachHDMouseClicked
-        // TODO add your handling code here:
-        clearGround();
-        panelDonHang.setBackground(Color.decode("#FDE0BE"));
-        lbDanhSachHD.setForeground(Color.decode("#F29D38"));
-        DSHoaDon dshd = new DSHoaDon();
-        panelContainer.removeAll();
-        panelContainer.add(dshd);
-        panelContainer.setLayout(new FlowLayout());
-        this.pack();
-        panelContainer.setVisible(true);
-    }//GEN-LAST:event_lbDanhSachHDMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
     private void clearGround() {
         panelDonHang.setBackground(Color.decode("#FFFFFF"));
         panelKhachHang.setBackground(Color.decode("#FFFFFF"));
@@ -521,7 +538,34 @@ public class FormMain extends javax.swing.JFrame {
         lbThemMoiKH.setForeground(Color.decode("#000000"));
     }
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FormMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FormMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FormMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FormMain().setVisible(true);

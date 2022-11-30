@@ -4,9 +4,9 @@
  */
 package View;
 
+import Model.HoaDon;
 import Service.ViewDanhSachHoaDonService;
 import Service.impl.ViewDanhSachHoaDonServiceImpl;
-import ViewModel.ViewDonHang;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +23,12 @@ public class DSHoaDon extends javax.swing.JPanel {
      */
     private DefaultTableModel dtm = new DefaultTableModel();
     private ViewDanhSachHoaDonService service = new ViewDanhSachHoaDonServiceImpl();
-    private List<ViewDonHang> listDonHang = new ArrayList<>();
+    private List<HoaDon> listDonHang = new ArrayList<>();
 
     public DSHoaDon() {
         initComponents();
         tbHienThi.setModel(dtm);
-        String[] header = {"ID", "Tên Đơn", "Tên người bán", "Ngày bán", "Tổng tiền (triệu)", "Trạng thái"};
+        String[] header = {"ID", "Tên Đơn", "Ngày bán", "Tên người bán", "Tổng tiền (triệu)", "Trạng thái"};
         dtm.setColumnIdentifiers(header);
         listDonHang = service.getAll();
         showDataTbale(listDonHang);
@@ -49,6 +49,8 @@ public class DSHoaDon extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbHienThi = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -109,19 +111,42 @@ public class DSHoaDon extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbHienThi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tbHienThi);
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel2.setText(">");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jLabel4.setText("<");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1585, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1587, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 60, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(30, 30, 30))
         );
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -162,7 +187,7 @@ public class DSHoaDon extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(65, Short.MAX_VALUE))
+                        .addContainerGap(63, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -190,7 +215,7 @@ public class DSHoaDon extends javax.swing.JPanel {
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,11 +227,19 @@ public class DSHoaDon extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtSearchMouseClicked
 
-    private void showDataTbale(List<ViewDonHang> list) {
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        if(tbHienThi.getSelectedRow() > -1 && tbHienThi.getSelectedRow() < listDonHang.size()){
+            int row = tbHienThi.getSelectedRow();
+            tbHienThi.setRowSelectionInterval(row+1, row+1);
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void showDataTbale(List<HoaDon> list) {
         dtm.setRowCount(0);
         int i = 1;
-        for(ViewDonHang vdh : list){
-            dtm.addRow(vdh.toDataRow(i));
+        for (HoaDon hd : list) {
+            dtm.addRow(hd.toDataRow(i));
             i++;
         }
     }
@@ -215,7 +248,9 @@ public class DSHoaDon extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

@@ -4,13 +4,11 @@
  */
 package Repository;
 
-import Model.Account;
 import Model.ChiTietSanPham;
 import Model.Hang;
 import Model.Loai;
 import Model.SanPham;
 import Utilities.SQLServerConnection;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,11 +24,11 @@ public class ChiTietSanPhamRepository {
 
     public List<ChiTietSanPham> getAll() {
         String query = "SELECT dbo.ChiTietSanPham.Id, dbo.ChiTietSanPham.IdSP, dbo.SanPham.Ma, dbo.SanPham.TenSP, dbo.ChiTietSanPham.IdHang, dbo.Hang.Ma AS Expr1, dbo.Hang.Ten, dbo.ChiTietSanPham.IdLoai, dbo.Loai.Ma AS Expr2, dbo.Loai.Ten AS Expr3, \n"
-                + "                  dbo.ChiTietSanPham.DonViTinh, dbo.ChiTietSanPham.SoLuongTon, dbo.ChiTietSanPham.GiaNhap, dbo.ChiTietSanPham.GiaBan, dbo.ChiTietSanPham.NgayNhap, dbo.ChiTietSanPham.NgayChinhSua\n"
-                + "FROM     dbo.Hang INNER JOIN\n"
-                + "                  dbo.Loai ON dbo.Hang.Id = dbo.Loai.Id INNER JOIN\n"
-                + "                  dbo.ChiTietSanPham ON dbo.Hang.Id = dbo.ChiTietSanPham.IdHang AND dbo.Loai.Id = dbo.ChiTietSanPham.IdLoai INNER JOIN\n"
-                + "                  dbo.SanPham ON dbo.ChiTietSanPham.IdSP = dbo.SanPham.Id";
+                + "                             dbo.ChiTietSanPham.DonViTinh, dbo.ChiTietSanPham.SoLuongTon, dbo.ChiTietSanPham.GiaNhap, dbo.ChiTietSanPham.GiaBan, dbo.ChiTietSanPham.NgayNhap, dbo.ChiTietSanPham.NgayChinhSua\n"
+                + "                FROM     dbo.ChiTietSanPham INNER JOIN\n"
+                + "                                 dbo.Loai ON dbo.ChiTietSanPham.IdLoai = dbo.Loai.Id INNER JOIN\n"
+                + "                                dbo.Hang ON dbo.Hang.Id = dbo.ChiTietSanPham.IdHang AND dbo.Loai.Id = dbo.ChiTietSanPham.IdLoai INNER JOIN\n"
+                + "                               dbo.SanPham ON dbo.ChiTietSanPham.IdSP = dbo.SanPham.Id";
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(query)) {
             List<ChiTietSanPham> list = new ArrayList<>();
             ResultSet rs = ps.executeQuery();

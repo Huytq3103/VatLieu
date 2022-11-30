@@ -10,41 +10,26 @@ package Model;
  */
 public class Account {
 
-    private String id;
+    private int id;
     private int chucVu;
     private int trangThai;
     private String hoTen;
-    private String ngaySinh;
     private boolean gioiTinh;
-    private String SDT;
-    private String diaChi;
-    private String eamil;
     private String username;
     private String password;
     private String ngayTao;
-    private String nguoiTao;
+    private int nguoiTao;
     private String ngayChinhSua;
-    private String NguoiChinhSua;
+    private int NguoiChinhSua;
 
     public Account() {
     }
 
-    public Account(String id, int chucVu, String hoTen) {
-        this.id = id;
-        this.chucVu = chucVu;
-        this.hoTen = hoTen;
-    }
-
-    public Account(String id, int chucVu, int trangThai, String hoTen, String ngaySinh, boolean gioiTinh, String SDT, String diaChi, String eamil, String username, String password, String ngayTao, String nguoiTao, String ngayChinhSua, String NguoiChinhSua) {
-        this.id = id;
+    public Account(int chucVu, int trangThai, String hoTen, boolean gioiTinh, String username, String password, String ngayTao, int nguoiTao, String ngayChinhSua, int NguoiChinhSua) {
         this.chucVu = chucVu;
         this.trangThai = trangThai;
         this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
         this.gioiTinh = gioiTinh;
-        this.SDT = SDT;
-        this.diaChi = diaChi;
-        this.eamil = eamil;
         this.username = username;
         this.password = password;
         this.ngayTao = ngayTao;
@@ -53,36 +38,32 @@ public class Account {
         this.NguoiChinhSua = NguoiChinhSua;
     }
 
-    public Account(String id, int chucVu, int trangThai, String username, String password) {
+    public Account(int id, int trangThai, String hoTen) {
+        this.id = id;
+        this.trangThai = trangThai;
+        this.hoTen = hoTen;
+    }
+
+    public Account(int id, int chucVu, int trangThai, String hoTen, boolean gioiTinh, String username, String password, String ngayTao, int nguoiTao, String ngayChinhSua, int NguoiChinhSua) {
         this.id = id;
         this.chucVu = chucVu;
         this.trangThai = trangThai;
+        this.hoTen = hoTen;
+        this.gioiTinh = gioiTinh;
         this.username = username;
         this.password = password;
+        this.ngayTao = ngayTao;
+        this.nguoiTao = nguoiTao;
+        this.ngayChinhSua = ngayChinhSua;
+        this.NguoiChinhSua = NguoiChinhSua;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getChucVu() {
@@ -109,14 +90,6 @@ public class Account {
         this.hoTen = hoTen;
     }
 
-    public String getNgaySinh() {
-        return ngaySinh;
-    }
-
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh = ngaySinh;
-    }
-
     public boolean isGioiTinh() {
         return gioiTinh;
     }
@@ -125,28 +98,20 @@ public class Account {
         this.gioiTinh = gioiTinh;
     }
 
-    public String getSDT() {
-        return SDT;
+    public String getUsername() {
+        return username;
     }
 
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
-    }
-
-    public String getEamil() {
-        return eamil;
-    }
-
-    public void setEamil(String eamil) {
-        this.eamil = eamil;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNgayTao() {
@@ -157,11 +122,11 @@ public class Account {
         this.ngayTao = ngayTao;
     }
 
-    public String getNguoiTao() {
+    public int getNguoiTao() {
         return nguoiTao;
     }
 
-    public void setNguoiTao(String nguoiTao) {
+    public void setNguoiTao(int nguoiTao) {
         this.nguoiTao = nguoiTao;
     }
 
@@ -173,12 +138,15 @@ public class Account {
         this.ngayChinhSua = ngayChinhSua;
     }
 
-    public String getNguoiChinhSua() {
+    public int getNguoiChinhSua() {
         return NguoiChinhSua;
     }
 
-    public void setNguoiChinhSua(String NguoiChinhSua) {
+    public void setNguoiChinhSua(int NguoiChinhSua) {
         this.NguoiChinhSua = NguoiChinhSua;
     }
 
+    public Object[] toDataRow(int i) {
+        return new Object[]{i, hoTen, gioiTinh == true ? "Nam" : "Nữ", nguoiTao, ngayTao, trangThai == 1 ? "Able" : "Disable"};
+    }
 }

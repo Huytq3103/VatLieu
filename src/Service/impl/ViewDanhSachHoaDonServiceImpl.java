@@ -7,8 +7,6 @@ package Service.impl;
 import Model.HoaDon;
 import Repository.HoaDonRepository;
 import Service.ViewDanhSachHoaDonService;
-import ViewModel.ViewDonHang;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,12 +18,8 @@ public class ViewDanhSachHoaDonServiceImpl implements ViewDanhSachHoaDonService 
     private HoaDonRepository hdr = new HoaDonRepository();
 
     @Override
-    public List<ViewDonHang> getAll() {
-        List<ViewDonHang> list = new ArrayList<>();
-        for(HoaDon hd : hdr.getAll()){
-            list.add(new ViewDonHang(hd));
-        }
-        return list;
+    public List<HoaDon> getAll() {
+        return hdr.getAll();
     }
 
 }
